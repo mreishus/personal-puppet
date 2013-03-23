@@ -13,4 +13,9 @@ node default {
     ufw::allow { "allow-https-from-all":
         port => 443,
     }
+
+    class { "prezto_zsh":
+        user => "root",
+        homedir => "/root",
+    }
 }
