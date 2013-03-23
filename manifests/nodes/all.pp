@@ -20,7 +20,7 @@ node default {
     }
 
     ########### USERNAME GOES HERE ######
-    $default_username = "whateveryouwant"
+    $default_username = "deploy"
     ########### SET PUBKEY BELOW ########
 
     user::add_user { "$default_username": 
