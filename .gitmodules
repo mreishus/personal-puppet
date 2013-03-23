@@ -1,0 +1,3 @@
+[submodule "modules/ufw"]
+	path = modules/ufw
+	url = git@github.com:puppetmodules/puppet-module-ufw.git
