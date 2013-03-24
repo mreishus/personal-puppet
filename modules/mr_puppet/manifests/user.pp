@@ -25,6 +25,13 @@ class user {
             mode    => 700,
             require => User["$username"],
         }
+        file { "/home/$username/.backup":
+            ensure  => directory,
+            owner   => $username,
+            group   => $username,
+            mode    => 700,
+            require => User["$username"],
+        }
         file { "/home/$username/.ssh/authorized_keys":
             ensure  => present,
             owner   => $username,
