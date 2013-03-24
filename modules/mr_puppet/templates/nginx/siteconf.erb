@@ -1,0 +1,27 @@
+server
+{
+    server_name .<%= site %>;
+
+    access_log /var/log/nginx/<%= site %>.access.log;
+    error_log /var/log/nginx/<%= site %>.error.log;
+
+    root /var/www/<%= site %>/html;
+
+    index index.html index.htm;
+
+    #index index.php index.html index.htm;
+    # use fastcgi for all php files
+    #location ~ \.php$
+    #{
+    #    fastcgi_pass 127.0.0.1:9000;
+    #    fastcgi_index index.php;
+    #    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    #    include fastcgi_params;
+    #}
+
+    # deny access to apache .htaccess files
+    location ~ /\.ht
+    {
+        deny all;
+    }
+}
