@@ -31,6 +31,7 @@ class prezto_zsh {
         }
 
         # Clone it
+        # FIXME - .zprezto belongs to root after this
         exec { "clone_prezto_zsh_$user": 
             command => "git clone --recursive $p_repo $homedir/.zprezto",
             creates => "$homedir/.zprezto",
