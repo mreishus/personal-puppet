@@ -28,4 +28,16 @@ class minimal {
         enable => true,
         ensure => running,
     }
+
+    augeas { "sudo_group_no_passwd":
+        context => "/files/etc/sudoers",
+        changes => [
+            'set spec[user = "%sudo"]/user %sudo',
+            'set spec[user = "%sudo"]/host_group/host ALL',
+            'set spec[user = "%sudo"]/host_group/command ALL',
+            'set spec[user = "%sudo"]/host_group/command/tag NOPASSWD',
+        ],
+        require => Package["sudo"],
+    }
+
 }
