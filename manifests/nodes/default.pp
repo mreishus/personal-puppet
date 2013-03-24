@@ -7,12 +7,6 @@ node default {
     ufw::allow { "allow-ssh-from-all":
         port => 22,
     }
-    ufw::allow { "allow-http-from-all":
-        port => 80,
-    }
-    ufw::allow { "allow-https-from-all":
-        port => 443,
-    }
 
     prezto_zsh::add_prezto_to_user{ "root":
         user => "root",

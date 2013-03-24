@@ -33,7 +33,8 @@ class prezto_zsh {
         # Clone it
         # FIXME - .zprezto belongs to root after this
         exec { "clone_prezto_zsh_$user": 
-            command => "git clone --recursive $p_repo $homedir/.zprezto",
+            # command => "git clone --recursive $p_repo $homedir/.zprezto",
+            command => "sh -c 'git clone --recursive $p_repo $homedir/.zprezto; chown -R $user:$user $homedir/.zprezto'",
             creates => "$homedir/.zprezto",
             require => [Package["git"], Package["zsh"], Package["perl"]],
         }
@@ -41,31 +42,43 @@ class prezto_zsh {
         # Add symlinks
         file { "$homedir/.zlogin":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zlogin",
             require => Exec["clone_prezto_zsh_$user"],
         }
         file { "$homedir/.zlogout":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zlogout",
             require => Exec["clone_prezto_zsh_$user"],
         }
         file { "$homedir/.zpreztorc":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zpreztorc",
             require => Exec["clone_prezto_zsh_$user"],
         }
         file { "$homedir/.zprofile":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zprofile",
             require => Exec["clone_prezto_zsh_$user"],
         }
         file { "$homedir/.zshenv":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zshenv",
             require => Exec["clone_prezto_zsh_$user"],
         }
         file { "$homedir/.zshrc":
             ensure => link,
+            owner => $user,
+            group => $user,
             target => "$homedir/.zprezto/runcoms/zshrc",
             require => Exec["clone_prezto_zsh_$user"],
         }
