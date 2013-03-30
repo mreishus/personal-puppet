@@ -1,5 +1,6 @@
 node default {
     class { "minimal": }
+    class { "tmux": }
     class { "etckeeper": }
 
     # Firewall

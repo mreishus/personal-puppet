@@ -1,7 +1,7 @@
 class minimal {
     $minimal_packages = [ "zsh", "screen", "molly-guard", "htop", "dstat", "fail2ban", 
 	"strace", "sudo", "vim-nox", "tig", "unattended-upgrades", "augeas-lenses", "augeas-tools", 
-    "openssh-server", "ack-grep" ]
+    "openssh-server", "ack-grep", "build-essential", "curl", "wget", "nmap", "irssi", "libaugeas-ruby" ]
 
     package { $minimal_packages:
         ensure => present,

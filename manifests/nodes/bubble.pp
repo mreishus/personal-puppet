@@ -1,5 +1,6 @@
 node /bubble/ {
     class { "minimal": }
+    class { "tmux": }
     class { "etckeeper": }
 
     # Firewall
@@ -16,6 +17,11 @@ node /bubble/ {
     ########### USERNAME GOES HERE ######
     $default_username = "deploy"
     ########### SET PUBKEY BELOW ########
+    #### TODO: Fix username/pubkey customization using Hiera + YAML/JSON Data source as
+    #### an isolated 'config store'
+    #### http://docs.puppetlabs.com/hiera/1/
+    #### Requires puppet 3.0!  Puppetlabs is working on a doc example of this, but it
+    #### Isn't ready yet.
 
     user::add_user { "$default_username": 
         groups => "sudo",
