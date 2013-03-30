@@ -21,7 +21,7 @@ class tmux {
         cwd => "/usr/local/src/tmux-1.8",
         command => "./configure",
         require => [Exec["download_untar_tmux"], Package["libevent-dev"], Package["libncurses5-dev"], Package["build-essential"]],
-        creates => "/usr/local/src/tmux-1.8/config.h",
+        creates => "/usr/local/src/tmux-1.8/Makefile",
     }
     exec { "make":
         cwd => "/usr/local/src/tmux-1.8",
